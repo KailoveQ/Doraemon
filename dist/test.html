@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>哆啦A梦送给你！</title>
+</head>
+
+<body>
+    <style id="demo2"></style>
+    <div id="demo"></div>
+    <div id="buttons">
+        <button id="btnPause">暂停</button>
+        <button id="btnPlay">播放</button>
+        <button id="btnSlow">慢速</button>
+        <button id="btnNormal">中速</button>
+        <button id="btnFast">快速</button>
+    </div>
+    <style>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::after {
+            box-sizing: border-box;
+        }
+
+        *::before {
+            box-sizing: border-box;
+        }
+
+        @keyframes move {
+            10% {}
+
+            25% {
+                margin: -16px 0 0 0;
+            }
+
+            50% {
+                margin: -10px 0 0 -16px;
+            }
+
+            75% {
+                margin: 10px 0 0 -16px;
+            }
+
+            90% {}
+        }
+
+        .preview {
+            position: relative;
+        }
+
+        .naodai {
+            position: relative;
+        }
+
+        /* border */
+        .head,
+        .face,
+        .eye,
+        .nose,
+        .lip.right,
+        .lip.right::after,
+        .lip.left,
+        .lip.left::after,
+        .mouse,
+        .mouse>.tongue,
+        .mouse>.tongue::after,
+        .mouse>.tongue::before,
+        .smallEye::before,
+        .smallEye,
+        .body,
+        .body .pocket,
+        .body .pocket::after,
+        .body .pocket::before,
+        .body .hand .arm::after,
+        .footer .foot,
+        .footer .write,
+        .neck>.bell ::after,
+        .neck,
+        .neck>.bell {
+            border: 2px solid black;
+        }
+
+        /* pos:abs */
+        .head,
+        .face,
+        .eye,
+        .smallEye,
+        .nose,
+        .nose::after,
+        .lip.right,
+        .lip.right::after,
+        .lip.left,
+        .lip.left::after,
+        .upperLip,
+        .beard,
+        .mouse-wrapper,
+        .mouse,
+        .mouse-wrapper>.mouse>.tongue,
+        .mouse>.tongue::before,
+        .mouse>.tongue::after,
+        .neck,
+        .neck>.bell,
+        .neck>.bell>.bellTongue,
+        .neck>.bell ::before,
+        .neck>.bell ::after,
+        .body,
+        .body .pocket,
+        .body .pocket::after,
+        .body .pocket::before,
+        .body .hand,
+        .body .hand.left .arm,
+        .body .hand.right .arm,
+        .body .hand .arm::after,
+        .body .hand .write,
+        .footer,
+        .footer .foot,
+        .footer .write {
+            position: absolute;
+        }
+
+        /* left 50 */
+        .head,
+        .face,
+        .eye.right,
+        .nose,
+        .lip.left,
+        .upperLip,
+        .beard.left1,
+        .beard.left2,
+        .beard.left3,
+        .mouse-wrapper,
+        .mouse,
+        .mouse>.tongue,
+        .neck,
+        .neck>.bell,
+        .neck>.bell>.bellTongue,
+        .neck>.bell ::after,
+        .neck>.bell ::before,
+        .body,
+        .body .pocket,
+        .body .pocket::before,
+        .body .pocket::after,
+        .footer .left,
+        .footer .write {
+            left: 50%;
+        }
+
+        /* border-radius */
+        .head,
+        .face,
+        .eye,
+        .smallEye,
+        .smallEye::before,
+        .nose,
+        .nose::after,
+        .neck>.bell,
+        .neck>.bell>.bellTongue,
+        .body .hand .arm::after {
+            border-radius: 50%;
+        }
+
+        /* background: white; */
+        .face,
+        .eye,
+        .smallEye::before,
+        .nose::after,
+        .lip.right,
+        .lip.right::after,
+        .lip.left,
+        .lip.left::after,
+        .body .pocket::after,
+        .body .pocket,
+        .body .pocket::before,
+        .body .hand .arm::after,
+        .footer .foot,
+        .footer .write {
+            background: white;
+        }
+
+        /* 蓝色 */
+        .head,
+        .body,
+        .body .hand.right .arm,
+        .body .hand.left .arm,
+        .body .hand .write {
+            background: rgb(5, 165, 215);
+        }
+
+        /* 黑色 */
+        .neck>.bell ::before,
+        .neck>.bell>.bellTongue {
+            background-color: black;
+        }
+
+        .lip.left,
+        .lip.left::after,
+        .mouse>.tongue::before,
+        .body .pocket::before {
+            border-right: transparent;
+        }
+
+        .lip.left::after {
+            border-bottom: transparent;
+        }
+
+        .lip.left {
+            border-top: transparent;
+        }
+
+        .lip.right::after,
+        .mouse>.tongue::after {
+            border-left: transparent;
+            border-bottom: transparent;
+        }
+
+        .lip.right,
+        .body .pocket::before {
+            border-left: transparent;
+            border-top: transparent;
+        }
+
+        /* content */
+        .smallEye::before,
+        .nose::after,
+        .lip.right::after,
+        .lip.left::after,
+        .mouse>.tongue::after,
+        .mouse>.tongue::before,
+        .neck>.bell ::after,
+        .neck>.bell ::before,
+        .body .pocket::before,
+        .body .pocket::after,
+        .body .hand .arm::after {
+            content: "";
+            display: block;
+        }
+
+        /* 底下是按钮 */
+        #buttons {
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        #buttons>button {
+            margin-bottom: 10px;
+            padding: 4px 8px;
+        }
+
+        #demo2 {
+            display: none;
+        }
+
+        #demo {
+            position: fixed;
+            height: 50vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        #demo::-webkit-scrollbar {
+            display: none;
+        }
+
+        #html {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90vh;
+        }</style>
+    <div id="html">
+        <div class="preview">
+            <div class="naodai">
+                <div class="head"></div>
+                <div class="face"></div>
+                <div class="mouse-wrapper">
+                    <div class="mouse">
+                        <div class="tongue"></div>
+                    </div>
+                </div>
+                <div class="eye right">
+                    <div class="smallEye"></div>
+                </div>
+                <div class="eye left">
+                    <div class="smallEye"></div>
+                </div>
+                <div class="lip right"></div>
+                <div class="lip left"></div>
+                <div class="nose"></div>
+                <div class="upperLip"></div>
+                <div class="beard right1"></div>
+                <div class="beard right2"></div>
+                <div class="beard right3"></div>
+                <div class="beard left1"></div>
+                <div class="beard left2"></div>
+                <div class="beard left3"></div>
+            </div>
+            <div class="neck">
+                <div class="bell">
+                    <div class="bellTongue">
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="pocket"></div>
+                <div class="hand left">
+                    <div class="arm"></div>
+                    <div class="write"></div>
+                </div>
+                <div class="hand right">
+                    <div class="arm"></div>
+                    <div class="write"></div>
+                </div>
+                <div class="footer">
+                    <div class="foot left"></div>
+                    <div class="foot right"></div>
+                    <div class="write"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="test.8ef4fafc.js"></script>
+</body>
+
+</html>
