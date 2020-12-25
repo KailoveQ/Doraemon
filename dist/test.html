@@ -151,6 +151,14 @@
             left: 50%;
         }
 
+        .eye.left,
+        .lip.right,
+        .beard.right3,
+        .beard.right2,
+        .beard.right1 {
+            right: 50%;
+        }
+
         /* border-radius */
         .head,
         .face,
@@ -163,6 +171,11 @@
         .neck>.bell>.bellTongue,
         .body .hand .arm::after {
             border-radius: 50%;
+        }
+
+        .body .pocket,
+        .body .pocket::after {
+            border-radius: 50% / 50%;
         }
 
         /* background: white; */
@@ -198,6 +211,12 @@
             background-color: black;
         }
 
+        .upperLip,
+        .body .hand.left .arm,
+        .body .hand.right .arm {
+            border: 1px solid black;
+        }
+
         .lip.left,
         .lip.left::after,
         .mouse>.tongue::before,
@@ -205,16 +224,16 @@
             border-right: transparent;
         }
 
-        .lip.left::after {
-            border-bottom: transparent;
-        }
-
+        .lip.left,
+        .mouse>.tongue,
         .lip.left {
             border-top: transparent;
         }
 
         .lip.right::after,
-        .mouse>.tongue::after {
+        .mouse>.tongue::after,
+        .lip.left::after,
+        .mouse>.tongue::before {
             border-left: transparent;
             border-bottom: transparent;
         }
@@ -239,6 +258,42 @@
         .body .hand .arm::after {
             content: "";
             display: block;
+        }
+
+        /* 宽高 */
+        .lip.right::after,
+        .lip.left::after {
+            height: 20px;
+            width: 38px;
+        }
+
+        .beard.left3,
+        .beard.right3 {
+            width: 70px;
+            top: 150px;
+        }
+
+        .beard.right1,
+        .beard.left1 {
+            top: 115px;
+        }
+
+        .beard.right2,
+        .beard.left2 {
+            width: 80px;
+        }
+
+        .beard.left2,
+        .beard.right2 {
+            top: 135px;
+        }
+
+        .body .hand.left {
+            left: -64px;
+        }
+
+        .body .hand.right {
+            right: -64px;
         }
 
         /* 底下是按钮 */
