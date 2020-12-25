@@ -33,9 +33,6 @@ const string = `
   top: 0px;
 }
 
-.eye.left {
-  right: 50%;
-}
 .eye.left > .smallEye {
   left: 70%;
 }
@@ -64,27 +61,7 @@ const string = `
   left: 10%;
 }
 
-.lip.right {
-  width: 120px;
-  height: 40px;
-  border-bottom-right-radius: 33px 30px;
-  transform: rotate(8deg);
-  top: 124px;
-  right: 50%;
-  margin-right: -120px;
-}
-
-.lip.right::after {
-  height: 20px;
-  width: 38px;
-  top: -51%;
-  left: 69.4%;
-  border-top-right-radius: 20px 20px;
-  transform: rotate(0deg);
-}
-
 .lip.left {
-  border-top: transparent;
   width: 120px;
   height: 40px;
   border-bottom-left-radius: 33px 30px;
@@ -92,21 +69,32 @@ const string = `
   top: 124px;
   margin-left: -120px;
 }
+.lip.right {
+  width: 120px;
+  height: 40px;
+  border-bottom-right-radius: 33px 30px;
+  transform: rotate(8deg);
+  top: 124px;
+  margin-right: -120px;
+}
 
 .lip.left::after {
-  height: 20px;
-  width: 38px;
-  border-bottom: transparent;
   border-top-left-radius: 20px 20px;
   transform: rotate(0deg);
   top: -51%;
   right: 69.4%;
 }
+.lip.right::after {
+  top: -51%;
+  left: 69.4%;
+  border-top-right-radius: 20px 20px;
+  transform: rotate(0deg);
+}
+
 .upperLip {
   height: 24px;
   width: 0;
   background: #000;
-  border: 1px solid black;
   border-radius: 25%;
   top: 130px;
 }
@@ -116,41 +104,28 @@ const string = `
   width: 57px;
   background: black;
 }
-.beard.right1 {
-  top: 115px;
-  right: 50%;
-  margin-right: -80px;
-  transform: rotate(-16deg);
-}
-.beard.right2 {
-  width: 80px;
-  top: 135px;
-  right: 50%;
-  margin-right: -105px;
-}
-.beard.right3 {
-  width: 70px;
-  top: 150px;
-  right: 50%;
-  margin-right: -90px;
-  transform: rotate(10deg);
-}
+
 .beard.left1 {
-  top: 115px;
   margin-left: -80px;
   transform: rotate(16deg);
 }
-
+.beard.right1 {
+  margin-right: -80px;
+  transform: rotate(-16deg);
+}
 .beard.left2 {
-  width: 80px;
-  top: 135px;
   margin-left: -105px;
 }
+.beard.right2 {
+  margin-right: -105px;
+}
 .beard.left3 {
-  width: 70px;
-  top: 150px;
   margin-left: -90px;
   transform: rotate(-10deg);
+}
+.beard.right3 {
+  margin-right: -90px;
+  transform: rotate(10deg);
 }
 .mouse-wrapper {
   height: 140px;
@@ -172,7 +147,6 @@ const string = `
 .mouse > .tongue {
   width: 90px;
   height: 40px;
-  border-top: transparent;
   z-index: 2;
   border-radius: 0 0 100px 100px;
   background: rgb(244, 83, 2);
@@ -183,7 +157,6 @@ const string = `
 .mouse > .tongue::before {
   height: 30px;
   width: 40px;
-  border-bottom: transparent;
   border-top-left-radius: 80px 50px;
   transform: rotate(45deg);
   background: rgb(244, 83, 2);
@@ -218,11 +191,9 @@ const string = `
   top: 4px;
   margin-left: -20px;
 }
-
 .neck > .bell > .bellTongue {
   width: 12px;
   height: 10px;
-
   top: 20px;
   margin-left: -6px;
 }
@@ -250,14 +221,13 @@ const string = `
 .body .pocket {
   width: 170px;
   height: 140px;
-  border-radius: 50% / 50%;
   top: -4px;
   margin-left: -85px;
 }
+
 .body .pocket::after {
   width: 130px;
   height: 100px;
-  border-radius: 50% / 50%;
   top: 20px;
   margin-left: -65px;
 }
@@ -279,18 +249,9 @@ const string = `
   top: 0px;
 }
 
-.body .hand.left {
-  left: -64px;
-}
-
-.body .hand.right {
-  right: -64px;
-}
-
 .body .hand.left .arm {
   width: 120px;
   height: 40px;
-  border: 1px solid black;
   z-index: -1;
   left: -20px;
   transform: rotate(220deg);
@@ -300,7 +261,6 @@ const string = `
 .body .hand.right .arm {
   width: 80px;
   height: 40px;
-  border: 1px solid black;
   z-index: -1;
   top: 0px;
   transform: rotate(25deg);
@@ -363,6 +323,6 @@ const string = `
 .smallEye {
   animation: move 3s linear infinite;
 }
-  
+
 `
 export default string;
